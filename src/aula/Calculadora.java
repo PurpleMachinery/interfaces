@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame; //Importa o JFRAME que é responsavel pela interface grafica.
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
 
 public class Calculadora extends JFrame {
 	double x, y, total;
@@ -62,6 +63,11 @@ public class Calculadora extends JFrame {
 		btnCe.setBounds(70, 110, 55, 40);
 		paine.add(btnC);
 		btnC.setBounds(130, 110, 55, 40);
+		btnC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtVisor.setText("");
+			}
+		});
 		paine.add(btnMM);
 		btnMM.setBounds(190, 110, 55, 40);
 		paine.add(btnRaiz);
@@ -91,7 +97,9 @@ public class Calculadora extends JFrame {
 		btnDiv.setBounds(190, 155, 55, 40);
 		btnDiv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtVisor.setText(txtVisor.getText() + "/");
+				x = Double.parseDouble(txtVisor.getText());
+				k = '/';
+				txtVisor.setText("");
 			}
 		});
 		paine.add(btnPor);
@@ -121,7 +129,9 @@ public class Calculadora extends JFrame {
 		btnMulti.setBounds(190, 200, 55, 40);
 		btnMulti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtVisor.setText(txtVisor.getText() + "*");
+				x = Double.parseDouble(txtVisor.getText());
+				k = '*';
+				txtVisor.setText("");
 			}
 		});
 		paine.add(btnumBarra);
@@ -151,7 +161,9 @@ public class Calculadora extends JFrame {
 		btnMenos.setBounds(190, 245, 55, 40);
 		btnMenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtVisor.setText(txtVisor.getText() + "-");
+				x = Double.parseDouble(txtVisor.getText());
+				k = '-';
+				txtVisor.setText("");
 			}
 		});
 		paine.add(btnZero);
@@ -172,8 +184,8 @@ public class Calculadora extends JFrame {
 		btnMais.setBounds(190, 290, 55, 40);
 		btnMais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				x=Double.parseDouble(txtVisor.getText());
-				k='+';
+				x = Double.parseDouble(txtVisor.getText());
+				k = '+';
 				txtVisor.setText("");
 			}
 		});
@@ -181,15 +193,22 @@ public class Calculadora extends JFrame {
 		btnIgual.setBounds(250, 245, 55, 85);
 		btnIgual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				y=Double.parseDouble(txtVisor.getText());
+				y = Double.parseDouble(txtVisor.getText());
 				Calculos cal = new Calculos();
-				if(k=='+'){
-					txtVisor.setText(""+cal.soma(x, y));
+				if (k == '+') {
+					txtVisor.setText("" + cal.soma(x, y));
+				} else if (k == '-') {
+					txtVisor.setText("" + cal.subtracao(x, y));
+				} else if (k == '/') {
+					txtVisor.setText("" + cal.divisao(x, y));
+				} else if (k == '*') {
+					txtVisor.setText("" + cal.multiplicacao(x, y));
 				}
 			}
 		});
 
 		paine.setLayout(null); // Defini o posicionamento na tela.
+		this.setLocation( 500, 200); // Defini aonde aparece a janela.
 		this.setVisible(true); // Responsavel pela exibição do programa.
 		this.setSize(330, 375); // Responsavel pelo Tamanho de abertura.
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE); // Para não rodar como
@@ -199,6 +218,7 @@ public class Calculadora extends JFrame {
 	}
 
 	public static void main(String args[]) {
+		JOptionPane.showMessageDialog(null,"Obrigado por usar o Descauculator!");
 		Calculadora calc = new Calculadora(); // Objeto de Calculadora.
 	}
 }
