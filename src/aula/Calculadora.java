@@ -32,9 +32,10 @@ public class Calculadora extends JFrame {
 	JButton btnPor = new JButton("%");
 	JButton btnMulti = new JButton("*");
 	JButton btnumBarra = new JButton("1/x");
-	JButton btnumMenos = new JButton("-");
-	JButton btnumMais = new JButton("+");
-	JButton btnumIgual = new JButton("=");
+	JButton btnMenos = new JButton("-");
+	JButton btnMais = new JButton("+");
+	JButton btnIgual = new JButton("=");
+	JButton btnVirgula = new JButton(",");
 
 	public Calculadora() { // Construtor.
 		super("Calculadora"); // Responsavel pelo titulo da janela.
@@ -96,6 +97,12 @@ public class Calculadora extends JFrame {
 		
 		paine.add(btnSeis);
 		btnSeis.setBounds(130, 200, 55, 40);
+		
+		paine.add(btnMulti);
+		btnMulti.setBounds(190, 200, 55, 40);
+		
+		paine.add(btnumBarra);
+		btnumBarra.setBounds(250, 200, 55, 40);
 
 		paine.add(btnUm);
 		btnUm.setBounds(10, 245, 55, 40);
@@ -106,8 +113,20 @@ public class Calculadora extends JFrame {
 		paine.add(btnTres);
 		btnTres.setBounds(130, 245, 55, 40);
 		
+		paine.add(btnMenos);
+		btnMenos.setBounds(190, 245, 55, 40);
+		
 		paine.add(btnZero);
 		btnZero.setBounds(10, 290, 115, 40);
+		
+		paine.add(btnVirgula);
+		btnVirgula.setBounds(130, 290, 55, 40);
+		
+		paine.add(btnMais);
+		btnMais.setBounds(190, 290, 55, 40);
+	
+		paine.add(btnIgual);
+		btnIgual.setBounds(250, 245, 55, 85);
 		
 		paine.setLayout(null); // Defini o posicionamento na tela.
 		this.setVisible(true); // Responsavel pela exibição do programa.
