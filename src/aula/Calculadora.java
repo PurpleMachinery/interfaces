@@ -57,15 +57,32 @@ public class Calculadora extends JFrame {
 		btnMmais.setBounds(190, 60, 55, 40);
 		paine.add(btnMmenos);
 		btnMmenos.setBounds(250, 60, 55, 40);
+		
 		paine.add(btnSetaes);
 		btnSetaes.setBounds(10, 110, 55, 40);
+		btnSetaes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				txtVisor.setText(""+txtVisor.getText().subSequence(0, txtVisor.getText().length()-1));
+			}
+		});
+		
 		paine.add(btnCe);
 		btnCe.setBounds(70, 110, 55, 40);
+		btnCe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtVisor.setText("");
+			}
+		});
 		paine.add(btnC);
 		btnC.setBounds(130, 110, 55, 40);
 		btnC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtVisor.setText("");
+				x = 0;
+				y = 0;
+				total = 0;
+				k = ' ';
 			}
 		});
 		paine.add(btnMM);
