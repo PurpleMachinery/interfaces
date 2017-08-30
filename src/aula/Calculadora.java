@@ -89,6 +89,11 @@ public class Calculadora extends JFrame {
 		btnMM.setBounds(190, 110, 55, 40);
 		paine.add(btnRaiz);
 		btnRaiz.setBounds(250, 110, 55, 40);
+		btnRaiz.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtVisor.setText(""+Math.sqrt(Double.parseDouble(txtVisor.getText())));
+			}
+		});
 		paine.add(btnSete);
 		btnSete.setBounds(10, 155, 55, 40);
 		btnSete.addActionListener(new ActionListener() {
