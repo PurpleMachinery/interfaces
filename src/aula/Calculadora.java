@@ -229,6 +229,8 @@ public class Calculadora extends JFrame {
 			}
 		});
 
+		
+		this.setUndecorated(true);
 		paine.setLayout(null); // Defini o posicionamento na tela.
 		this.setLocation( 500, 200); // Defini aonde aparece a janela.
 		this.setVisible(true); // Responsavel pela exibição do programa.
@@ -240,7 +242,7 @@ public class Calculadora extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		JOptionPane.showMessageDialog(null,"Obrigado por usar o Descauculator!");
+		//JOptionPane.showMessageDialog(null,"Obrigado por usar o Descauculator!"); --Cria mensagem de dialogo.
 		Calculadora calc = new Calculadora(); // Objeto de Calculadora.
 	}
 }
