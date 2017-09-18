@@ -8,14 +8,22 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicComboBoxRenderer;
+import javax.swing.text.MaskFormatter;
 
 public class Menu extends JFrame {
+
+	MaskFormatter formaCep = null;
+	MaskFormatter formaTel = null;
+	MaskFormatter formaCel = null;
+	MaskFormatter formaRg = null;
+	MaskFormatter formaCpf = null;
 
 	JLabel lblNome = new JLabel("Nome");
 	JLabel lblSexo = new JLabel("Sexo");
@@ -51,39 +59,49 @@ public class Menu extends JFrame {
 	public Menu() {
 		Container paine = this.getContentPane();
 		paine.setLayout(null);
+		BasicComboBoxRenderer.UIResource UIResource = new BasicComboBoxRenderer.UIResource();
+		UIResource.setHorizontalAlignment(SwingConstants.CENTER);
 
 		paine.add(lblNome);
 		paine.add(txtNome);
+		txtNome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNome.setBounds(220, 10, 100, 20);
 		txtNome.setBounds(2, 30, 480, 20);
 
 		paine.add(lblEndereco);
 		paine.add(txtEndereco);
+		txtEndereco.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEndereco.setBounds(210, 50, 100, 20);
 		txtEndereco.setBounds(2, 70, 480, 20);
 
 		paine.add(lblBairro);
 		paine.add(txtBairro);
+		txtBairro.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBairro.setBounds(220, 90, 100, 20);
 		txtBairro.setBounds(2, 110, 480, 20);
 
+		try {
+			formaCep = new MaskFormatter("#####-###");
+			txtCep = new JFormattedTextField(formaCep);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		paine.add(lblCep);
 		paine.add(txtCep);
+		txtCep.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCep.setBounds(225, 130, 100, 20);
 		txtCep.setBounds(2, 150, 480, 20);
 
 		paine.add(lblCidade);
 		paine.add(txtCidade);
+		txtCidade.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCidade.setBounds(220, 170, 100, 20);
 		txtCidade.setBounds(2, 190, 480, 20);
 
-		
 		paine.add(lblEstado);
 		paine.add(combEstado);
-		BasicComboBoxRenderer.UIResource UIResource = new BasicComboBoxRenderer.UIResource();
-	    UIResource.setHorizontalAlignment(SwingConstants.CENTER);
-	    combEstado.setRenderer(UIResource);
-	    combEstado.setBackground(new Color(255, 255, 255));
+		combEstado.setRenderer(UIResource);
+		combEstado.setBackground(new Color(255, 255, 255));
 		combEstado.addItem("Acre");
 		combEstado.addItem("Alagoas");
 		combEstado.addItem("Amapá");
@@ -114,23 +132,51 @@ public class Menu extends JFrame {
 		lblEstado.setBounds(220, 210, 100, 20);
 		combEstado.setBounds(2, 230, 480, 20);
 
+		try {
+			formaTel = new MaskFormatter("(##) ####-####");
+			txtTelefone = new JFormattedTextField(formaTel);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		paine.add(lblTelefone);
 		paine.add(txtTelefone);
+		txtTelefone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTelefone.setBounds(215, 250, 100, 20);
 		txtTelefone.setBounds(2, 270, 480, 20);
 
+		try {
+			formaCel = new MaskFormatter("(##) 9####-####");
+			txtCelular = new JFormattedTextField(formaCel);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		paine.add(lblCelular);
 		paine.add(txtCelular);
+		txtCelular.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCelular.setBounds(220, 290, 100, 20);
 		txtCelular.setBounds(2, 310, 480, 20);
 
+		try {// 50.850.901-4
+			formaRg = new MaskFormatter("##.###.###-A");
+			txtRg = new JFormattedTextField(formaRg);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		paine.add(lblRg);
 		paine.add(txtRg);
+		txtRg.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRg.setBounds(230, 330, 100, 20);
 		txtRg.setBounds(2, 350, 480, 20);
 
+		try {// 490.042.328-93
+			formaCpf = new MaskFormatter("###.###.###-##");
+			txtCpf = new JFormattedTextField(formaCpf);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		paine.add(lblCpf);
 		paine.add(txtCpf);
+		txtCpf.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCpf.setBounds(230, 370, 100, 20);
 		txtCpf.setBounds(2, 390, 480, 20);
 
