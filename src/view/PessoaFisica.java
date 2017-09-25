@@ -53,8 +53,9 @@ public class PessoaFisica extends JFrame {
 	JTextField txtRg = new JTextField();
 	JTextField txtCpf = new JTextField();
 
-	JButton btnEnviar = new JButton("Send");
-	JButton btnLimpar = new JButton("Clean");
+	JButton btnSalvar = new JButton("Enviar");
+	JButton btnImprimir = new JButton ("Imprimir");
+	JButton btnLimpar = new JButton("Limpar");
 
 	public PessoaFisica() {
 		Container paine = this.getContentPane();
@@ -191,8 +192,10 @@ public class PessoaFisica extends JFrame {
 		rdnSexo[0].setBounds(150, 430, 100, 20);
 		rdnSexo[1].setBounds(250, 430, 100, 20);
 
-		paine.add(btnEnviar);
-		btnEnviar.setBounds(100, 500, 100, 50);
+		paine.add(btnSalvar);
+		btnSalvar.setBounds(100, 500, 100, 50);
+		paine.add(btnImprimir);
+		btnImprimir.setBounds(200, 500, 100, 50);
 
 		paine.add(btnLimpar);
 		btnLimpar.setBounds(300, 500, 100, 50);
