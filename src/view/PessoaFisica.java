@@ -58,6 +58,7 @@ public class PessoaFisica extends JFrame {
 	JButton btnLimpar = new JButton("Limpar");
 
 	public PessoaFisica() {
+		model.PessoaFisica pf = new model.PessoaFisica();
 		Container paine = this.getContentPane();
 		paine.setLayout(null);
 		BasicComboBoxRenderer.UIResource UIResource = new BasicComboBoxRenderer.UIResource();
@@ -194,6 +195,20 @@ public class PessoaFisica extends JFrame {
 
 		paine.add(btnSalvar);
 		btnSalvar.setBounds(100, 500, 100, 50);
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pf.setBairro(txtBairro.getText());
+				pf.setCelular(txtCelular.getText());
+				pf.setCep(txtCep.getText());
+				pf.setCpf(txtCpf.getText());
+				pf.setEndereco(txtEndereco.getText());
+				pf.setEstado(txtEstado.getText());
+				pf.setNome(txtNome.getText());
+				pf.setRg(txtRg.getText());
+				pf.setTelefone(txtTelefone.getText());
+			}
+		});
+		
 		paine.add(btnImprimir);
 		btnImprimir.setBounds(200, 500, 100, 50);
 
