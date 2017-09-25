@@ -1,4 +1,4 @@
-package cadastro;
+package view;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -17,7 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicComboBoxRenderer;
 import javax.swing.text.MaskFormatter;
 
-public class Menu extends JFrame {
+public class PessoaFisica extends JFrame {
 
 	MaskFormatter formaCep = null;
 	MaskFormatter formaTel = null;
@@ -56,7 +56,7 @@ public class Menu extends JFrame {
 	JButton btnEnviar = new JButton("Send");
 	JButton btnLimpar = new JButton("Clean");
 
-	public Menu() {
+	public PessoaFisica() {
 		Container paine = this.getContentPane();
 		paine.setLayout(null);
 		BasicComboBoxRenderer.UIResource UIResource = new BasicComboBoxRenderer.UIResource();
@@ -219,6 +219,6 @@ public class Menu extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		Menu mn = new Menu();
+		PessoaFisica mn = new PessoaFisica();
 	}
 }
