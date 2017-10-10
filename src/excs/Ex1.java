@@ -1,6 +1,5 @@
 package excs;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,16 +30,24 @@ public class Ex1 extends JFrame {
 
 		this.add(txbN1);
 		txbN1.setBounds(0, 0, ww, 40);
+		txbN1.setHorizontalAlignment(JTextField.CENTER);
 		this.add(txbN2);
 		txbN2.setBounds(0, 50, ww, 40);
+		txbN2.setHorizontalAlignment(JTextField.CENTER);
 		this.add(btnCalc);
 		btnCalc.setBounds(0, 100, ww, 40);
 		btnCalc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				lblSoma.setText("Soma: "+(Double.parseDouble(txbN1.getText())+Double.parseDouble(txbN2.getText())));
-				lblSub.setText("Subtração: "+(Double.parseDouble(txbN1.getText())-Double.parseDouble(txbN2.getText())));
-				lblDiv.setText("Divisão: "+(Double.parseDouble(txbN1.getText())/Double.parseDouble(txbN2.getText())));
-				lblMult.setText("Multiplicação: "+(Double.parseDouble(txbN1.getText())*Double.parseDouble(txbN2.getText())));
+				if (txbN1.getText() != null || txbN2.getText() != null) {
+					lblSoma.setText(
+							"Soma: " + (Double.parseDouble(txbN1.getText()) + Double.parseDouble(txbN2.getText())));
+					lblSub.setText("Subtração: "
+							+ (Double.parseDouble(txbN1.getText()) - Double.parseDouble(txbN2.getText())));
+					lblDiv.setText(
+							"Divisão: " + (Double.parseDouble(txbN1.getText()) / Double.parseDouble(txbN2.getText())));
+					lblMult.setText("Multiplicação: "
+							+ (Double.parseDouble(txbN1.getText()) * Double.parseDouble(txbN2.getText())));
+				}
 			}
 		});
 		this.add(lblSoma);
