@@ -1,6 +1,8 @@
 package calculadora;
 
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +15,8 @@ public class Pitagoras extends JFrame{
 
 	JTextField cA = new JTextField();
 	JTextField cB = new JTextField();
+	
+	JLabel result = new JLabel("Hipotenusa");
 	
 	JButton btn = new JButton("calcular");
 	public Pitagoras(){
@@ -27,6 +31,13 @@ public class Pitagoras extends JFrame{
 		cB.setBounds(70,80,200,20);
 		paine.add(btn);
 		btn.setBounds(0,110,200,20);
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				result.setText(""+((Double.parseDouble(cA.getText())*Double.parseDouble(cA.getText()))+((Double.parseDouble(cB.getText())*Double.parseDouble(cB.getText())))));
+			}
+		});
+		paine.add(result);
+		result.setBounds(100, 150, 150, 20);
 		
 		paine.setLayout(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
