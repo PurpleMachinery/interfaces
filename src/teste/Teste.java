@@ -11,8 +11,8 @@ public class Teste extends JFrame{
 	private Teste(){
 		super("oi");
 		Container paine = this.getContentPane();
-		k.setBounds(100,100,100,100);
 		paine.add(k);
+		k.setBounds(100,100,100,100);
 		
 		paine.setLayout(null);
 		this.setVisible(true);
