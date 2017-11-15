@@ -230,7 +230,7 @@ public class Calculadora extends JFrame {
 		});
 
 		
-		this.setUndecorated(true);
+		//this.setUndecorated(true);
 		paine.setLayout(null); // Defini o posicionamento na tela.
 		this.setLocation( 500, 200); // Defini aonde aparece a janela.
 		this.setVisible(true); // Responsavel pela exibição do programa.
