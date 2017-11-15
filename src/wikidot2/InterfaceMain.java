@@ -1,5 +1,6 @@
 package wikidot2;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,8 +63,6 @@ public class InterfaceMain extends JFrame{
 		normal.setSelected(true);
 		menuEstilo.add(normal);
 		menuEstilo.add(windows);
-		
-		
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
