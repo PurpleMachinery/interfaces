@@ -1,4 +1,4 @@
-package wikidot;
+package wikidott;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -68,7 +68,7 @@ public class InterfaceAgenda extends JInternalFrame {
 		buttonFechar.setIcon(new ImageIcon(getClass().getResource("imagens/FECHAR.png")));
 		buttonFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonFecharActionPerformed(e); // chama esse método
+				buttonFecharActionPerformed(e);
 			}
 		});
 

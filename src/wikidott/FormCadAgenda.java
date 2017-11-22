@@ -1,4 +1,4 @@
-package wikidot;
+package wikidott;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -113,12 +113,10 @@ public class FormCadAgenda extends JDialog {
 		 * já cadastrado
 		 */
 		if (edicao == false) {
-			resposta = JOptionPane.showConfirmDialog(this, JOptionPane.OK_CANCEL_OPTION, "Incluir Registro?",
-					JOptionPane.QUESTION_MESSAGE);
+			resposta = JOptionPane.showConfirmDialog(this, JOptionPane.OK_CANCEL_OPTION, "Incluir Registro?", JOptionPane.QUESTION_MESSAGE);
 			if (resposta == JOptionPane.OK_OPTION) {
 				// fazendo a inclusão do contato na agenda
-				Pessoa p = new Pessoa(textNome.getText(), textTelefone.getText(), textEmail.getText(),
-						textEndereco.getText());
+				Pessoa p = new Pessoa(textNome.getText(), textTelefone.getText(), textEmail.getText(), textEndereco.getText());
 				Main.minhaAgenda.add(p);
 
 				JOptionPane.showMessageDialog(this, "Inclusão efetuada!!!", "Inclusão",

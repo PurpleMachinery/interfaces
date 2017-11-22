@@ -1,4 +1,4 @@
-package wikidot;
+package wikidott;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -28,8 +28,7 @@ public class Main extends JFrame {
 	private ButtonGroup group = new ButtonGroup();
 
 	public static void main(String[] args) {
-		Main m = new Main(); // chama o método q contrói a janela principal do
-								// prgrama
+		Main m = new Main(); 
 	}
 
 	public Main() { // método constructor, que monta a janela principal do
@@ -42,11 +41,6 @@ public class Main extends JFrame {
 				try {
 					super.paintComponents(g);
 
-					Image img = ImageIO.read(new java.net.URL(this.getClass().getResource("imagens/DESKTOP.gif"), "DESKTOP.gif"));
-					if (img != null) {
-						g.drawImage(img, 0, 0, 800, 600, this);
-					}
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,11 +50,11 @@ public class Main extends JFrame {
 		desktop.setBackground(Color.WHITE);
 
 		// seta os ícones dos menus
-		//menuAgenda.setIcon(new ImageIcon(this.getClass().getResource("imagens/AGENDA2.png")));
+		menuAgenda.setIcon(new ImageIcon(this.getClass().getResource("imagens/AGENDA2.png")));
 
-		//menuAbreAgenda.setIcon(new ImageIcon(this.getClass().getResource("imagens/AGENDA.png")));
+		menuAbreAgenda.setIcon(new ImageIcon(this.getClass().getResource("imagens/AGENDA.png")));
 
-		//menuEstilo.setIcon(new ImageIcon(this.getClass().getResource("imagens/ESTILO.png")));
+		menuEstilo.setIcon(new ImageIcon(this.getClass().getResource("imagens/ESTILO.png")));
 		// evento do botao do menu Abrir Agenda
 		menuAbreAgenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -68,7 +62,7 @@ public class Main extends JFrame {
 			}
 		});
 
-		//menuFechaAgenda.setIcon(new ImageIcon(this.getClass().getResource("imagens/FECHAR.png")));
+		menuFechaAgenda.setIcon(new ImageIcon(this.getClass().getResource("imagens/FECHAR.png")));
 		menuFechaAgenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menuFechaAgendaActionPerformed(e);
@@ -78,11 +72,12 @@ public class Main extends JFrame {
 		// adicionando no menu Estilo as opções de estilo
 		menuItemEstilo[0] = new JRadioButtonMenuItem("Metal");
 		menuItemEstilo[0].setSelected(true);
-		//menuItemEstilo[0].setIcon(new ImageIcon(this.getClass().getResource("imagens/JAVA.png")));
+		menuItemEstilo[0].setIcon(new ImageIcon(this.getClass().getResource("imagens/JAVA.png")));
 		menuItemEstilo[1] = new JRadioButtonMenuItem("Motif");
-		//menuItemEstilo[1].setIcon(new ImageIcon(this.getClass().getResource("imagens/LINUX.png")));
+		menuItemEstilo[1].setIcon(new ImageIcon(this.getClass().getResource("imagens/LINUX.png")));
 		menuItemEstilo[2] = new JRadioButtonMenuItem("Windows");
-		//menuItemEstilo[2].setIcon(new ImageIcon(this.getClass().getResource("imagens/WINDOWS.png")));
+		menuItemEstilo[2].setIcon(new ImageIcon(this.getClass().getResource("imagens/WINDOWS.png")));
+		// método que muda o estilo da janela
 		for (int i = 0; i < menuItemEstilo.length; i++) {
 			group.add(menuItemEstilo[i]);
 			menuEstilo.add(menuItemEstilo[i]);

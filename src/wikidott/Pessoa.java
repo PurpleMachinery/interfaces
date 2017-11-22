@@ -1,4 +1,4 @@
-package wikidot;
+package wikidott;
 
 import java.util.*;
 
