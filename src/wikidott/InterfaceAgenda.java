@@ -2,6 +2,7 @@ package wikidott;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
@@ -34,7 +35,12 @@ public class InterfaceAgenda extends JInternalFrame {
 		buttonNovo.setIcon(new ImageIcon(getClass().getResource("imagens/NOVO.png")));
 		buttonNovo.addActionListener(new ActionListener() { // ao clicar…
 			public void actionPerformed(ActionEvent e) {
-				buttonNovoActionPerformed(e); // chama esse método
+				try {
+					buttonNovoActionPerformed(e);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} // chama esse método
 			}
 		});
 
@@ -46,7 +52,12 @@ public class InterfaceAgenda extends JInternalFrame {
 		buttonEditar.setIcon(new ImageIcon(getClass().getResource("imagens/ALTERAR.png")));
 		buttonEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonEditarActionPerformed(e);
+				try {
+					buttonEditarActionPerformed(e);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		// define posicionamento do botão na janela
@@ -102,14 +113,14 @@ public class InterfaceAgenda extends JInternalFrame {
 	}
 
 	// evento do botão NOVO
-	private void buttonNovoActionPerformed(ActionEvent e) {
+	private void buttonNovoActionPerformed(ActionEvent e) throws IOException {
 		formCadAgenda = new FormCadAgenda(this);
 		formCadAgenda.setModal(true);
 		formCadAgenda.inicia();
 	}
 
 	// evento do botão editar
-	private void buttonEditarActionPerformed(ActionEvent e) {
+	private void buttonEditarActionPerformed(ActionEvent e) throws IOException {
 		// pega a linha selecionada
 		int linha = tabela.getSelectedRow();
 

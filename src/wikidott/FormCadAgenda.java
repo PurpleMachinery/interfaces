@@ -2,6 +2,10 @@ package wikidott;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.swing.*;
 
 public class FormCadAgenda extends JDialog {
@@ -45,7 +49,7 @@ public class FormCadAgenda extends JDialog {
 		this.textEndereco.setText(endereco);
 	}
 
-	void inicia() { // este método é responsável por mostrar o formulário na
+	void inicia() throws IOException{ // este método é responsável por mostrar o formulário na
 					// agenda
 
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // oculta a janela
@@ -77,7 +81,19 @@ public class FormCadAgenda extends JDialog {
 		// este método define ação do botao gravar
 		buttonGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonGravarActionPerformed(e);
+				try {
+					FileWriter arq = new FileWriter("C:/Users/Aluno_2/Desktop/interfaces/bin/wikidott/txt/"+textNome.getText()+".txt");
+					PrintWriter gravarArq = new PrintWriter(arq);
+					gravarArq.println(""+textNome.getText());
+					gravarArq.println(""+textEndereco.getText());
+					gravarArq.println(""+textEmail.getText());
+					gravarArq.println(""+textTelefone.getText());
+					arq.close();
+					JOptionPane.showMessageDialog(null, "Dados Gravados");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		// a mesma coisa do método anterior
